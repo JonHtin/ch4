@@ -1,0 +1,25 @@
+/* comment
+*/
+#include <stdio.h>
+#include <stdlib.h>
+#define importantvalue 0
+
+int
+main(int argc, char *argv[]) {
+	int x,divisor, isprime;
+	printf("Enter value: ");
+	scanf("%d", &x);
+	isprime = 0;
+	while (isprime==0){
+		x+=1;
+		isprime=1;
+		for (divisor=2; divisor*divisor<=x;divisor++){
+			if (x%divisor==0){
+				isprime=0;
+				break;
+			}
+		}
+	}
+	printf("The next prime is %d\n", x);
+	return 0;
+}
