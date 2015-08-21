@@ -1,0 +1,23 @@
+/* comment
+*/
+#include <stdio.h>
+#include <stdlib.h>
+#define zerofib 0
+#define firstfib 1
+
+
+int
+main(int argc, char *argv[]) {
+	int x, y, temp, count;
+	x= zerofib;
+	y= firstfib;
+	count = 0;
+	while (y<=10000000) {
+		temp = y;
+		y=x+y;
+		x=temp;
+		count+=1;
+		printf("%02d: %09d\n", count, y);
+	}
+	return 0;
+}
