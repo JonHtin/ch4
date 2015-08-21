@@ -1,0 +1,18 @@
+/* comment
+*/
+#include <stdio.h>
+#include <stdlib.h>
+#define importantvalue 0
+
+int
+main(int argc, char *argv[]) {
+	int x;
+	printf("Input integer values, enter to graph, control+D to end: \n");
+	while (scanf(" %d", &x)==1){
+		printf("%2d |",x);
+		while (x>0){
+			printf("*");
+			x-=1;
+		}printf("\n");
+	}return 0;
+}
