@@ -1,0 +1,25 @@
+/* comment
+*/
+#include <stdio.h>
+#include <stdlib.h>
+#define importantvalue 0
+
+int
+main(int argc, char *argv[]) {
+	printf("Enter text:\n");
+	int ch, lines, count, lastch, words;
+	count = lines = words = 0;
+	lastch=-1;
+	while ((ch=getchar()) != EOF){
+		count +=1;
+		if (ch=='\n'){
+			lines +=1;
+			if (lastch>=65 && lastch<=122){
+				words+=1;
+			}
+		}else if ((ch== ' '||ch==','||ch=='.') && (lastch>=65 && lastch<=122)){
+			words+=1;
+		}lastch=ch;
+	}printf("Lines: %6d\nChars: %6d\nWords: %6d",lines, count, words);
+	return 0;
+}
