@@ -1,0 +1,37 @@
+/* comment
+*/
+#include <stdio.h>
+#include <stdlib.h>
+#define importantvalue 0
+
+int
+main(int argc, char *argv[]) {
+	int ch, prevch=0, comment=0, needclosecomment=0;
+	while ((ch=getchar())!=EOF){
+		if (ch=='/' && prevch=='/'){
+			comment=1;
+		}
+		if (comment){
+			putchar('*');
+			comment=0;
+			needclosecomment=1;
+		}
+		else if (ch =='*' || ch=='/'){
+		}
+		else if (ch =='\n' && needclosecomment==1) {
+			needclosecomment=0;
+			putchar('*');
+			putchar('/');
+			putchar(ch);
+		}else{
+			putchar(ch);
+		}
+		if (prevch=='/'&& ch!='*'){
+		prevch=ch;
+	}if (needclosecomment==1){
+		needclosecomment=0;
+		putchar('*');
+		putchar('/');
+	}
+	return 0;
+}
