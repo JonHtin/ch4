@@ -1,0 +1,34 @@
+/* comment
+*/
+#include <stdio.h>
+#include <stdlib.h>
+#define perline 8
+
+int
+main(int argc, char *argv[]) {
+	int max, cycles, n, nmax, globalmax, maxseed, maxcycles, i;
+	printf("Enter starting value for nmax: ");	
+	scanf("%d", &nmax);	
+	globalmax=max=nmax;
+	maxcycles = cycles = 0;
+	maxseed =1;
+	for (i=1; i<=nmax; i++){
+		n=i;
+		while(n>1) {
+			if (n%2==0){
+				n=n/2;
+			}else{
+				n=3*n+1;
+			}
+			if (n>max) {
+				max = n;
+			}
+			cycles +=1;
+		}if (max>globalmax){
+			globalmax=max;
+			maxseed=i;
+			maxcycles=cycles;
+		}
+	}printf("\n%d cycles consumed, maximum was %d and seed was %d\n",maxcycles, globalmax, maxseed);
+	return 0;
+}
